@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;LoginCounter.java&apos; to &apos;Web_Viajes/src/main/java/impl.miw.presentation&apos;&#x0D;&#x0A;- Original project: &apos;Pilot_20_0&apos;&#x0D;&#x0A;- Destination element: &apos;Web_Viajes/src/main/java/impl.miw.presentation&apos;&#x0D;&#x0A;- Original element: &apos;impl.miw.presentation.LoginCounter.java&apos;" description="Copy compilation unit" destination="=Web_Viajes/src\/main\/java&lt;impl.miw.presentation" element1="/src\/main\/java&lt;impl.miw.presentation{LoginCounter.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1541753615011" units="1" version="1.0"/>
+</session>

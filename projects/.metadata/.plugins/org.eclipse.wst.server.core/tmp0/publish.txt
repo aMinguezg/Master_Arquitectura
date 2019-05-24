@@ -1,0 +1,9 @@
+#Tomcat publish data
+#Sat Nov 17 18:42:40 CET 2018
+org.eclipse.jst.j2ee.server\:/binary\:C\:\\Users\\Adrian\\Desktop\\Master\\ARQUI\\Environment\\projects\\Pilot_21_0\\Pilot_21_0\\src\\main\\webapp\\WEB-INF\\lib\\spring-web-5.0.8.RELEASE.jar=C\:\\Users\\Adrian\\Desktop\\Master\\ARQUI\\Environment\\sts-bundle\\pivotal-tc-server\\instances\\base-instance\\wtpwebapps\\Pilot_21_0\\WEB-INF\\lib\\spring-web-5.0.8.RELEASE.jar
+org.eclipse.jst.jee.server\:Prueba1=C\:\\Users\\Adrian\\Desktop\\Master\\ARQUI\\Environment\\sts-bundle\\pivotal-tc-server\\instances\\base-instance\\wtpwebapps\\Prueba1
+org.eclipse.jst.jee.server\:SpringMVCHibernateCRUD=C\:\\Users\\Adrian\\Desktop\\Master\\ARQUI\\Environment\\sts-bundle\\pivotal-tc-server\\instances\\base-instance\\wtpwebapps\\SpringMVCHibernateCRUD
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\Adrian\\Desktop\\Master\\ARQUI\\Environment\\projects\\Web_Viajes\\src\\main\\webapp\\WEB-INF\\lib\\spring-web-5.0.8.RELEASE.jar=C\:\\Users\\Adrian\\Desktop\\Master\\ARQUI\\Environment\\sts-bundle\\pivotal-tc-server\\instances\\base-instance\\wtpwebapps\\Web_Viajes\\WEB-INF\\lib\\spring-web-5.0.8.RELEASE.jar
+org.eclipse.jst.jee.server\:Web_Viajes=C\:\\Users\\Adrian\\Desktop\\Master\\ARQUI\\Environment\\sts-bundle\\pivotal-tc-server\\instances\\base-instance\\wtpwebapps\\Web_Viajes
+org.eclipse.jst.j2ee.server\:Pilot_21_0=C\:\\Users\\Adrian\\Desktop\\Master\\ARQUI\\Environment\\sts-bundle\\pivotal-tc-server\\instances\\base-instance\\wtpwebapps\\Pilot_21_0
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\Adrian\\.m2\\repository\\org\\springframework\\spring-web\\4.1.5.RELEASE\\spring-web-4.1.5.RELEASE.jar=C\:\\Users\\Adrian\\Desktop\\Master\\ARQUI\\Environment\\sts-bundle\\pivotal-tc-server\\instances\\base-instance\\wtpwebapps\\SpringMVCHibernateCRUD\\WEB-INF\\lib\\spring-web-4.1.5.RELEASE.jar

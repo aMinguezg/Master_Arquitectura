@@ -1,0 +1,65 @@
+package com.jwt.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.jwt.model.Usuario;
+import com.jwt.service.UsuarioManager;
+
+ 
+ 
+@Controller
+ public class LoginController {
+
+	@Autowired
+ 	private UsuarioManager  userManger;
+	
+	@RequestMapping(value = "/")
+	public String getForm()
+	{
+		System.out.println("Preparing the model for Login");
+		//We could prepare the model here instead of using  @ModelAttribute
+		return "login";
+	}
+	
+	
+	public UsuarioManager getUserManger() {
+		return userManger;
+	}
+
+
+	public void setUsuarioManger(UsuarioManager userManger) {
+		this.userManger = userManger;
+	}
+
+
+	@RequestMapping (method=RequestMethod.POST)
+	public String processForm(@ModelAttribute ("login") Usuario login, Model model)
+	{
+		System.out.println("Login in with "+login);
+		
+		
+		
+		if ( login.getLogin().equals(login.getPassword()))
+			return "index";
+		else
+		{
+			model.addAttribute("message", "Usuario o password incorrecto");
+			return "login";
+		}
+	}
+	
+	@ModelAttribute("login")
+	public Usuario prepareModel()
+	{
+		System.out.println("Invoking prepareModel()");
+		return new Usuario();
+	}
+
+	
+	
+}
