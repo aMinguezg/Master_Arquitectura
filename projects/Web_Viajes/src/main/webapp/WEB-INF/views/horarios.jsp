@@ -117,20 +117,7 @@
 
 	function gotoReserva() {
 
-		// Buscamos el radio seleccionado
-
-		let radioIda = $('input:radio[name=optradioIda]:checked');
-		let radioVuelta = $('input:radio[name=optradioVuelta]:checked');
-
-		//Buscamos la fila
-
-		let tableIda = $('#tb_viajesIda').DataTable();
-		rowIda = tableIda.row(radioIda.parents('tr'));
-
-		let tableVuelta = $('#tb_viajesVuelta').DataTable();
-		rowVuelta = tableVuelta.row(radioVuelta.parents('tr'));
-
-		seguro = document.querySelector('input[name="seguro"]:checked').value
+		 
 		// Sacamos el div confirmar reserva
 
 		document.getElementById("confirmarReserva").style.display = "block";
@@ -139,88 +126,14 @@
 		document.getElementById("primerForm").style.display = "none";
 
 	}
-
-	function gotoConfirmarReserva() {
-		//Montamos obj Ajax
-
-		//Miramos si tenemos vuelta
-
-		let origenVuelta = " ";
-		let destinoVuelta = " ";
-		let fechaVuelta = " ";
-		let horarioVuelta = " ";
-		let precioVuelta = 0;
-
-		let tbVuelta = document.getElementById("tb_viajesVuelta");
-		if (tbVuelta) {
-			if (tbVuelta.rows.length >= 3) {
-				origenVuelta = rowVuelta.data()[1];
-				destinoVuelta = rowVuelta.data()[2];
-				fechaVuelta = rowVuelta.data()[4];
-				horarioVuelta = rowVuelta.data()[5];
-				precioVuelta = rowVuelta.data()[3];
-			}
-		}
-
-		var reserva = new Object({
-			"localizador" : makeid(5),
-			"nombre" : document.getElementById("nombre").value,
-			"apellidos" : document.getElementById("apellidos").value,
-			"dni" : document.getElementById("dni").value,
-			"email" : document.getElementById("email").value,
-			"origenIda" : rowIda.data()[1],
-			"destinoIda" : rowIda.data()[2],
-			"fechaIda" : rowIda.data()[4],
-			"horarioIda" : rowIda.data()[5],
-			"origenVuelta" : origenVuelta,
-			"destinoVuelta" : destinoVuelta,
-			"fechaVuelta" : fechaVuelta,
-			"horarioVuelta" : horarioVuelta,
-			"pasajeros" : rowIda.data()[6],
-			"seguro" : seguro,
-			"precio" : ""
-		});
-
-		let reservaJSON = String(reserva);
-		//var url = apiRest + "manifiesto/crear";
-		//var url = "http://localhost:8080/apiRestCanariasDuas/json/manifiesto/crear/"+ formatFecha;
-		let url = contextPath + "/reserva";
-
-		$.ajax({
-			url : url,
-			type : 'POST',
-			data : {
-				reserva : reservaJSON
-			},
-			success : function(data) {
-
-				alert("eeeeeeeee");
-
-			},
-			error : function(jqXHR, textStatus, errorThrown) {
-				alert("ooooooooooo");
-
-			}
-		});
-
-	}
-
-	function makeid(length) {
-		var result = '';
-		var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-		var charactersLength = characters.length;
-		for (var i = 0; i < length; i++) {
-			result += characters.charAt(Math.floor(Math.random()
-					* charactersLength));
-		}
-		return result;
-	}
+ 
+ 
 </script>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
 <body>
- <section class="menu cid-ruMBnOoEGw" once="menu" id="menu1-8">
+  <section class="menu cid-ruMBnOoEGw" once="menu" id="menu1-8">
 
     
 
@@ -236,11 +149,11 @@
         <div class="menu-logo">
             <div class="navbar-brand">
                 <span class="navbar-logo">
-                    <a href="https://mobirise.co">
+                  <a href="login">
                          <img src="<c:url value="/resources/assets/images/mbr-122x81.jpg"></c:url>" alt="Mobirise" title="" style="height: 3.8rem;">
                     </a>
                 </span>
-                <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" href="https://mobirise.co">
+                <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" href="login">
                         ViajesColombia</a></span>
             </div>
         </div>
@@ -266,11 +179,23 @@
     </nav>
 </section>
  
-</br></br>
+
+</br>
+
+
 <section class="mbr-section form1 cid-ruN1sazoYG" id="form1-j">
 	<form:form method="POST" action="reserva" modelAttribute="reserva">
 		<div class="container">
+		<div class="well well-sm" style="display: inline-flex;">
+						<img src="<c:url value="/resources/assets/images/${fn:trim(fn:toLowerCase(listaida[0].destino))}.jpg"></c:url>" class="img-thumbnail" alt="img" width="304" height="236">
+
+</div> 
 			<h2>Selecciona tu viaje</h2>
+			<c:if test="${not empty errorReserva}">
+<div class="alert alert-danger">
+  <strong>Danger!</strong> ${errorReserva}
+</div>
+</c:if>
 			<div id="primerForm">
 				<div class="panel-group">
 					<div class="panel panel-primary">
@@ -294,7 +219,7 @@
 
 											<tr>
 												<td><label class="radio-inline"
-													style="display: inline;"> <form:radiobutton 
+													style="display: inline;"> <form:radiobutton checked="checked"
 															path="idViajeIda" value="${id.id}" required="required"/>
 
 												</label></td>
@@ -338,7 +263,7 @@
 
 												<tr>
 													<td><label class="radio-inline"
-														style="display: inline;"> <form:radiobutton
+														style="display: inline;"> <form:radiobutton checked="checked"
 																path="idViajeVuelta" value="${vuelta.id}" required="required" />
 
 													</label></td>
@@ -397,7 +322,7 @@
 					</div>
 
 					<div id="seguro">
-						<form:radiobutton path="seguro" value="no" required="required" />
+						<form:radiobutton path="seguro" value="no" checked="checked" required="required" />
 						No
 					</div>
 				</div>
@@ -423,14 +348,13 @@
 				<form:input class="form-control" path="apellidos" required="required"/>
 				<br />
 				<h2>EMAIL</h2>
-				<form:input class="form-control" path="email" required="required"/>
+				<form:input class="form-control" type="email" path="email" required="required"/>
 				<br />
 				<h2>IDENTIFICACIÓN</h2>
 
 				<form:select class="form-control" path="tipoId">
 					<form:options items="${countryList}" />
-					<form:option value="NONE" label="--- Select ---" />
-					<form:option value="DNI" label="DNI" />
+ 					<form:option value="DNI" label="DNI" />
 					<form:option value="NIE" label="NIE" />
 					<form:option value="PASAPORTE" label="PASAPORTE" />
 				</form:select>
@@ -444,6 +368,25 @@
 		</div>
 	</form:form>
 	</section>
+	
+<section once="" class="cid-ruMDUybqDE" id="footer7-b">
+
+    
+
+    
+
+    <div class="container">
+        <div class="media-container-row align-center mbr-white">
+           
+            
+            <div class="row row-copirayt">
+                <p class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">
+                    © Copyright 2019 Mobirise - All Rights Reserved
+                </p>
+            </div>
+        </div>
+    </div>
+</section>	
 <script src="<c:url value="/resources/assets/popper/popper.min.js"></c:url>"></script>
   <script src="<c:url value="/resources/assets/tether/tether.min.js"></c:url>"></script>
   <script src="<c:url value="/resources/assets/bootstrap/js/bootstrap.min.js"></c:url>"></script>

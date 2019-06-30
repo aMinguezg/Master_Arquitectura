@@ -75,7 +75,7 @@ $(document).ready(function() {
 </script>
 </head>
 <body>
-<section class="menu cid-ruMBnOoEGw" once="menu" id="menu1-8">
+ <section class="menu cid-ruMBnOoEGw" once="menu" id="menu1-8">
 
     
 
@@ -91,11 +91,11 @@ $(document).ready(function() {
         <div class="menu-logo">
             <div class="navbar-brand">
                 <span class="navbar-logo">
-                    <a href="https://mobirise.co">
+                  <a href="login">
                          <img src="<c:url value="/resources/assets/images/mbr-122x81.jpg"></c:url>" alt="Mobirise" title="" style="height: 3.8rem;">
                     </a>
                 </span>
-                <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" href="https://mobirise.co">
+                <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" href="login">
                         ViajesColombia</a></span>
             </div>
         </div>
@@ -190,6 +190,11 @@ $(document).ready(function() {
 				<td></td>
 			</tr>
 			<tr>
+				<td>Viaje ida - DESTINO</td>
+				<td>${viajeIda.destino}</td>
+				<td></td>
+			</tr>
+			<tr>
 				<td>Viaje ida - fecha</td>
 				<td>${viajeIda.fecha}</td>
 				<td></td>
@@ -210,6 +215,11 @@ $(document).ready(function() {
 				<tr>
 					<td>Viaje vuelta - ORIGEN</td>
 					<td>${viajeVuelta.origen}</td>
+					<td></td>
+				</tr>
+					<tr>
+					<td>Viaje vuelta - DESTINO</td>
+					<td>${viajeVuelta.destino}</td>
 					<td></td>
 				</tr>
 				<tr>
@@ -238,6 +248,7 @@ $(document).ready(function() {
 	</div>
 	</div>
 </div>
+ 
 <script src="<c:url value="/resources/assets/popper/popper.min.js"></c:url>"></script>
   <script src="<c:url value="/resources/assets/tether/tether.min.js"></c:url>"></script>
   <script src="<c:url value="/resources/assets/bootstrap/js/bootstrap.min.js"></c:url>"></script>

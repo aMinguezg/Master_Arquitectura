@@ -4,11 +4,14 @@ package impl.miw.presentation.reserva;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,9 +27,10 @@ import com.miw.business.ViajeManagerService;
 import com.miw.model.Reserva;
 import com.miw.model.Viaje;
 
+import impl.miw.presentation.viaje.ViajeValidator;
+
 @Controller
 @RequestMapping("reserva")
-@Scope("global-session")
 public class ReservaController {
 	@Autowired 
 	ReservaManagerService reservaManagerService;
@@ -50,9 +54,7 @@ public class ReservaController {
 			
 			}
 		catch (Exception e) {
-			//model.addAttribute("errorMsg", e.toString());
-			//return "error";
-			e.printStackTrace();
+			return "error";
 		}
 		return "emailExito";
 		
@@ -77,14 +79,18 @@ public class ReservaController {
 	
 	@RequestMapping(value = "/cancelar", method = RequestMethod.POST)
 	public String cancelarReserva(@ModelAttribute("reserva") Reserva reserva, Model model) {
+		String vista = "";
 		try {
-			reservaManagerService.deleteReserva(reserva);
+			int reservaDelete = reservaManagerService.deleteReserva(reserva);
+			if(reservaDelete > 0) { 
+				vista = "cancelarOK";}
+			else
+			{ vista = "cancelarNoResultados";}
 		} catch (Exception e) {
- 			e.printStackTrace();
-			//return "error";
+ 			return "error";
 		}
 		
-		return "cancelarOK";
+		return vista;
 		
 	}
 
@@ -95,8 +101,7 @@ public class ReservaController {
 			List<Viaje> historial = reservaManagerService.getHistorial(reserva.getEmail());
 			model.addAttribute("listaReserva",historial);
 		} catch (Exception e) {
- 			e.printStackTrace();
-			return "error";
+ 			return "error";
 		}
 		
 		return "listaReservas";
@@ -104,8 +109,8 @@ public class ReservaController {
 	}
 	
     @PostMapping
-	public String confirmarReserva(@ModelAttribute("reserva") Reserva reserva, Model model) {
-		
+	public String confirmarReserva(@Valid @ModelAttribute("reserva") Reserva reserva,BindingResult result, Model model, RedirectAttributes redirectAttributes) {
+    	Viaje viajeVuelta = null;
 		System.out.println("Controlador CONF de la reserva.");
 		 try { 
 		reservaManagerService.saveReserva(reserva);
@@ -119,13 +124,31 @@ public class ReservaController {
 		if(reserva.getIdViajeVuelta() != null) {viajeManagerService.reducirPasajeros(Integer.parseInt(reserva.getIdViajeVuelta()));
 		
 		//Recuperamos losd datos del viaje de vuelta
-		Viaje viajeVuelta = viajeManagerService.getViajeById(Integer.parseInt(reserva.getIdViajeVuelta())); 
+		 viajeVuelta = viajeManagerService.getViajeById(Integer.parseInt(reserva.getIdViajeVuelta())); 
 		model.addAttribute("viajeVuelta",viajeVuelta);
 
 		}
 		
 		model.addAttribute("viajeIda",viajeIda);
 		model.addAttribute("reserva",reserva);
+		
+		// We validate with the Validator
+		ReservaValidator validator = new ReservaValidator();
+		validator.validate(reserva, result);
+		
+ 		if (result.hasErrors()) {
+			Viaje vFlash = new Viaje();
+			vFlash.setFecha(viajeIda.getFecha());
+			vFlash.setDestino(viajeIda.getDestino());
+			vFlash.setOrigen(viajeIda.getOrigen());
+			if( viajeVuelta!= null &&viajeVuelta.getFechaVuelta() != null) {
+				vFlash.setFechaVuelta(viajeVuelta.getFechaVuelta());
+			}
+			redirectAttributes.addFlashAttribute("viaje", vFlash);
+			redirectAttributes.addFlashAttribute("errorReserva",result.getAllErrors().toString());
+
+			return "redirect:horarios";
+		}
 
 		 } catch (Exception e) {
 			return "error";

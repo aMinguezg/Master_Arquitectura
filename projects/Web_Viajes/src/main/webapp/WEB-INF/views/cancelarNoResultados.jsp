@@ -8,8 +8,6 @@
 <head>
 <title>Viajes</title>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="<c:url value="/resources/assets/web/assets/mobirise-icons/mobirise-icons.css"></c:url>">
   <link rel="stylesheet" href="<c:url value="/resources/assets/tether/tether.min.css"></c:url>">
   <link rel="stylesheet" href="<c:url value="/resources/assets/bootstrap/css/bootstrap.min.css"></c:url>">
@@ -43,7 +41,7 @@
  
 </head>
 <body>
-<section class="menu cid-ruMBnOoEGw" once="menu" id="menu1-8">
+ <section class="menu cid-ruMBnOoEGw" once="menu" id="menu1-8">
 
     
 
@@ -59,11 +57,11 @@
         <div class="menu-logo">
             <div class="navbar-brand">
                 <span class="navbar-logo">
-                    <a href="https://mobirise.co">
+                  <a href="login">
                          <img src="<c:url value="/resources/assets/images/mbr-122x81.jpg"></c:url>" alt="Mobirise" title="" style="height: 3.8rem;">
                     </a>
                 </span>
-                <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" href="https://mobirise.co">
+                <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" href="login">
                         ViajesColombia</a></span>
             </div>
         </div>
@@ -90,6 +88,7 @@
 </section>
 
 
+
 <section class="engine"><a href="https://mobirise.info/h">create a web page for free</a></section><section class="mbr-section content5 cid-ruN1DMyZKp mbr-parallax-background" id="content5-l">
 
     
@@ -99,10 +98,11 @@
     <div class="container">
         <div class="media-container-row">
             <div class="title col-12 col-md-8">
-                <h2 class="align-center mbr-bold mbr-white pb-3 mbr-fonts-style display-2"><br>No se ha encontrado ninguna reserva asociada al localizado y email introducidos</h2>
+                <h2 class="align-center mbr-bold mbr-white pb-3 mbr-fonts-style display-2"><br></h2>
                 <h3 class="mbr-section-subtitle align-center mbr-light mbr-white pb-3 mbr-fonts-style display-5">
-                    Por favor verifique que los datos introducidos son correctos</h3>
-                    <p>Gracias por confiar en Viajes Colombia</p>
+                    No se ha encontrado ninguna reserva asociada al localizador y email introducidos</h3>
+                    <p style="font-weight: bold;">Por favor verifique que los datos introducidos son correctos</p>
+                    <p> Gracias por confiar en Viajes Colombia</p>
                 
                 
             </div>

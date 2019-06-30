@@ -57,7 +57,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<section class="menu cid-ruMBnOoEGw" once="menu" id="menu1-8">
+	 <section class="menu cid-ruMBnOoEGw" once="menu" id="menu1-8">
 
     
 
@@ -73,11 +73,11 @@
         <div class="menu-logo">
             <div class="navbar-brand">
                 <span class="navbar-logo">
-                    <a href="https://mobirise.co">
+                  <a href="login">
                          <img src="<c:url value="/resources/assets/images/mbr-122x81.jpg"></c:url>" alt="Mobirise" title="" style="height: 3.8rem;">
                     </a>
                 </span>
-                <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" href="https://mobirise.co">
+                <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" href="login">
                         ViajesColombia</a></span>
             </div>
         </div>
@@ -102,7 +102,7 @@
         </div>
     </nav>
 </section>
-
+	
 	</br>
 	</br>
 	<section class="mbr-section form1 cid-ruN1sazoYG" id="form1-j">
@@ -146,6 +146,24 @@
 			</div>
 		</div>
 	</section>
+	<section once="" class="cid-ruMDUybqDE" id="footer7-b">
+
+    
+
+    
+
+    <div class="container">
+        <div class="media-container-row align-center mbr-white">
+           
+            
+            <div class="row row-copirayt">
+                <p class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">
+                    © Copyright 2019 Mobirise - All Rights Reserved
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
 	<script
 		src="<c:url value="/resources/assets/popper/popper.min.js"></c:url>"></script>
 	<script

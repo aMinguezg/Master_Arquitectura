@@ -320,15 +320,15 @@ public class ReservaDAO implements ReservaDataService{
 			Class.forName(SQL_DRV);
 			con = DriverManager.getConnection(SQL_URL, "DFLANVIN", "AMAZIN");
 
-			ps = con.prepareStatement("select count(*) as contador, viaje.origen as origen  from reserva \r\n" + 
+			ps = con.prepareStatement("select count(*) as contador, viaje.destino as destino  from reserva \r\n" + 
 					"inner join viaje on viaje.id = reserva.idviajeida\r\n" + 
-					"group by contador,origen\r\n" + 
+					"group by contador,destino\r\n" + 
 					"limit 3");
 			rs = ps.executeQuery();
 
 			while (rs.next()) {
 
-  				destinos.add(rs.getString("origen").trim().toLowerCase());
+  				destinos.add(rs.getString("destino").trim().toLowerCase());
 
  			}
 

@@ -45,12 +45,12 @@
         <div class="menu-logo">
             <div class="navbar-brand">
                 <span class="navbar-logo">
-                    <a href="https://mobirise.co">
+                  <a href="login">
                          <img src="<c:url value="/resources/assets/images/mbr-122x81.jpg"></c:url>" alt="Mobirise" title="" style="height: 3.8rem;">
                     </a>
                 </span>
-                <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" href="https://mobirise.co">
-                        ViajesColombia</a></span>
+                <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" href="login">
+                        <spring:message code="viaje.junto"/></a></span>
             </div>
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -113,7 +113,7 @@
             <div class="card p-3 col-12 col-md-6 col-lg-4">
                 <div class="card-wrapper">
                     <div class="card-img">
-                        <img src="<c:url value="/resources/assets/images/${destinosTop[0]}.jpg"></c:url>" alt="Mobirise">
+                        <img src="<c:url value="/resources/assets/images/${destinosTop[0]}.jpg"></c:url>" class="img-thumbnail" alt="img" width="304" height="236">
                     </div>
                     <div class="card-box">
                         <h4 class="card-title pb-3 mbr-fonts-style display-7">
@@ -128,7 +128,7 @@
             <div class="card p-3 col-12 col-md-6 col-lg-4">
                 <div class="card-wrapper">
                     <div class="card-img">
-                        <img src="<c:url value="/resources/assets/images/${destinosTop[1]}.jpg"></c:url>" alt="Mobirise">
+                        <img src="<c:url value="/resources/assets/images/${destinosTop[1]}.jpg"></c:url>" class="img-thumbnail" alt="img" width="304" height="236">
                     </div>
                     <div class="card-box ">
                         <h4 class="card-title pb-3 mbr-fonts-style display-7">
@@ -143,7 +143,7 @@
             <div class="card p-3 col-12 col-md-6 col-lg-4">
                 <div class="card-wrapper">
                     <div class="card-img">
-                        <img src="<c:url value="/resources/assets/images/${destinosTop[2]}.jpg"></c:url>" alt="Mobirise">
+                        <img src="<c:url value="/resources/assets/images/${destinosTop[2]}.jpg"></c:url>" class="img-thumbnail" alt="img" width="304" height="236">
                     </div>
                     <div class="card-box">
                         <h4 class="card-title pb-3 mbr-fonts-style display-7">
@@ -186,62 +186,11 @@
 
     <div class="container">
         <div class="media-container-row align-center mbr-white">
-            <div class="row row-links">
-                <ul class="foot-menu">
-                    
-                    
-                    
-                    
-                    
-                <li class="foot-menu-item mbr-fonts-style display-7">
-                        <a class="text-white mbr-bold" href="#" target="_blank">About us</a>
-                    </li><li class="foot-menu-item mbr-fonts-style display-7">
-                        <a class="text-white mbr-bold" href="#" target="_blank">Services</a>
-                    </li><li class="foot-menu-item mbr-fonts-style display-7">
-                        <a class="text-white mbr-bold" href="#" target="_blank">Get In Touch</a>
-                    </li><li class="foot-menu-item mbr-fonts-style display-7">
-                        <a class="text-white mbr-bold" href="#" target="_blank">Careers</a>
-                    </li><li class="foot-menu-item mbr-fonts-style display-7">
-                        <a class="text-white mbr-bold" href="#" target="_blank">Work</a>
-                    </li></ul>
-            </div>
-            <div class="row social-row">
-                <div class="social-list align-right pb-2">
-                    
-                    
-                    
-                    
-                    
-                    
-                <div class="soc-item">
-                        <a href="https://twitter.com/mobirise" target="_blank">
-                            <span class="socicon-twitter socicon mbr-iconfont mbr-iconfont-social"></span>
-                        </a>
-                    </div><div class="soc-item">
-                        <a href="https://www.facebook.com/pages/Mobirise/1616226671953247" target="_blank">
-                            <span class="socicon-facebook socicon mbr-iconfont mbr-iconfont-social"></span>
-                        </a>
-                    </div><div class="soc-item">
-                        <a href="https://www.youtube.com/c/mobirise" target="_blank">
-                            <span class="socicon-youtube socicon mbr-iconfont mbr-iconfont-social"></span>
-                        </a>
-                    </div><div class="soc-item">
-                        <a href="https://instagram.com/mobirise" target="_blank">
-                            <span class="socicon-instagram socicon mbr-iconfont mbr-iconfont-social"></span>
-                        </a>
-                    </div><div class="soc-item">
-                        <a href="https://plus.google.com/u/0/+Mobirise" target="_blank">
-                            <span class="socicon-googleplus socicon mbr-iconfont mbr-iconfont-social"></span>
-                        </a>
-                    </div><div class="soc-item">
-                        <a href="https://www.behance.net/Mobirise" target="_blank">
-                            <span class="socicon-behance socicon mbr-iconfont mbr-iconfont-social"></span>
-                        </a>
-                    </div></div>
-            </div>
+           
+            
             <div class="row row-copirayt">
                 <p class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">
-                    © Copyright 2017 Mobirise - All Rights Reserved
+                    © Copyright 2019 Mobirise - All Rights Reserved
                 </p>
             </div>
         </div>

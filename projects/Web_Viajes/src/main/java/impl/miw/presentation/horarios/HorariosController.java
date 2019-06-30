@@ -47,7 +47,7 @@ public class HorariosController {
 
 		model.addAttribute("reserva",new Reserva());
 		if(listaIda.size() <= 0) {
-			return "emptyViajes";
+			return "viajesNoDisponibles";
 
 		}
 		else {
