@@ -1,19 +1,13 @@
 package impl.miw.presentation.viaje;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Vector;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.miw.business.ViajeManagerService;
 import com.miw.model.Viaje;
@@ -22,7 +16,8 @@ import com.miw.model.Viaje;
 
 
 @Controller
-@SessionAttributes("viaje")
+@RequestMapping("viaje")
+
 public class ViajeController {
 	@Autowired 
 	ViajeManagerService viajeManagerService;
@@ -31,52 +26,33 @@ public class ViajeController {
 		this.viajeManagerService = viajeManagerService;
 	}
 	
-	@RequestMapping(value = "viaje", method=RequestMethod.GET)
+	
+	@GetMapping
 	public String viaje(Model model) throws Exception {
-		System.out.println("Controlador del viaje.");
-
-		// We store the list of books in teh model.
+ 
+		// Cargamos lista de viajes de IDA
 		model.addAttribute("listaviajeida",
 				viajeManagerService.getCiudades(true));
+		
+		// Cargamos lista de viajes de VUELTA
 		model.addAttribute("listaviajevuelta",
 				viajeManagerService.getCiudades(false));
-		model.addAttribute("viaje",new Viaje());
-		// We return the name of the view. 
-		List<Integer> numbers = new ArrayList<Integer>();
-		List<Integer> dias = new ArrayList<Integer>();
-		List<Integer> meses = new ArrayList<Integer>();
-		List<Integer> annos = new ArrayList<Integer>();
-		annos.add(2018);
-		annos.add(2019);
-		model.addAttribute( "annos",annos);
-		for ( int i = 1 ; i <= 31 ; i ++ ) {
-			
-			if(i<=10) {
-				numbers.add(i);
-				meses.add(i);
-			}
-			if(i<=12) {
-				meses.add(i);
-			}
-			dias.add(i);
-		}
-		model.addAttribute( "numbers",numbers);
-		model.addAttribute( "dias",dias);
-		model.addAttribute( "meses",meses);
-		return "viaje";
 		
+		// Add Model VIAJE
+		model.addAttribute("viaje",new Viaje());
+		
+		// We return the name of the view. 
+		return "viaje";		
 	}
 	
-	@RequestMapping(method=RequestMethod.POST)
-	public String postSC(@ModelAttribute Viaje viaje, Model model) throws Exception
+	
+	@PostMapping
+	public String postSC(@ModelAttribute ("viaje") Viaje viaje, Model model,  RedirectAttributes redirectAttributes) throws Exception
 	{
-		System.out.println("Received: "+viaje);
-		
-		
-		System.out.println("probamos"+viaje.getOrigen());
-		// We return the name of the view. 
-		//Mandar desde aquí
-		model.addAttribute(viaje);
+ 		// We return the name of the view. 
+		/// Cargamos el viaje generado
+		//model.addAttribute("viaje", viaje);
+	    redirectAttributes.addFlashAttribute("viaje", viaje);
 		return "redirect:horarios";
 	}
 	

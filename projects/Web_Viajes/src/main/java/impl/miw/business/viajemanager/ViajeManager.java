@@ -29,23 +29,30 @@ public class ViajeManager implements ViajeManagerService {
 	}
 
 	public Vector<Viaje> getViajes() throws Exception {
-		
-		Vector<Viaje> viajes = viajeDataService.getViajes();
-		
-		return viajes;
+			
+		return viajeDataService.getViajes();
 	}
 	
 	public Vector<String> getCiudades(boolean tipo) throws Exception{
-		
-		Vector<String> ciudades = viajeDataService.getCiudades(tipo);
-		
-		return ciudades;
+	
+		return viajeDataService.getCiudades(tipo);
 	}
-	public Vector<Viaje> getViajesSeleccionado(String ori,String dest,String fech) throws Exception{
+	public Vector<Viaje> getViajesSeleccionado(String ori,String dest,String fech, int numPasajeros) throws Exception{
+				
+		return viajeDataService.getViajesSeleccionado(ori,dest,fech,numPasajeros);
 		
-		Vector<Viaje> viajes = viajeDataService.getViajesSeleccionado(ori,dest,fech);
+	}
+
+	public void reducirPasajeros(int idviaje) {
+		try {
+			viajeDataService.reducirPasajeros(idviaje);
+		} catch (Exception e) {
+ 			e.printStackTrace();
+		}
 		
-		return viajes;
-		
+	}
+
+	public Viaje getViajeById(int id) throws Exception {
+ 		return viajeDataService.getViajeById(id);
 	}
 }

@@ -9,16 +9,13 @@ public class Viaje {
 	private int id;
 	private String origen;
 	private String destino;
-	private Date fecha;
+	private String fecha;
 	private String horario;
 	private double precio;
 	private String imagen;
 	private int contador;
 	private int pasajeros;
-	private int anno;
-	private int mes;
-	private int dia;
-	
+	private String fechaVuelta;
 	public int getId() {
 		return id;
 	}
@@ -37,10 +34,10 @@ public class Viaje {
 	public void setDestino(String destino) {
 		this.destino = destino;
 	}
-	public Date getFecha() {
+	public String getFecha() {
 		return fecha;
 	}
-	public void setFecha(Date fecha) {
+	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
 	public String getHorario() {
@@ -73,24 +70,13 @@ public class Viaje {
 	public void setPasajeros(int pasajeros) {
 		this.pasajeros = pasajeros;
 	}
-	public int getAnno() {
-		return anno;
+	public String getFechaVuelta() {
+		return fechaVuelta;
 	}
-	public void setAnno(int anno) {
-		this.anno = anno;
+	public void setFechaVuelta(String fechaVuelta) {
+		this.fechaVuelta = fechaVuelta;
 	}
-	public int getMes() {
-		return mes;
-	}
-	public void setMes(int mes) {
-		this.mes = mes;
-	}
-	public int getDia() {
-		return dia;
-	}
-	public void setDia(int dia) {
-		this.dia = dia;
-	}
+	
 	
 	
 }

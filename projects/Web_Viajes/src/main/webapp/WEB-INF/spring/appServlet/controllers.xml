@@ -14,9 +14,11 @@
 	<mvc:annotation-driven />
 
 
-	<mvc:resources mapping="/resources/**" location="/resources/" />
+	<mvc:resources mapping="/resources/**" location="/resources/" ></mvc:resources>
+ 	
+	<mvc:resources mapping="/js/**" location="/js/" />
 	
-	<!-- Definimos nuestros controladores -->
+ 	<!-- Definimos nuestros controladores -->
 	<context:component-scan base-package="impl.miw,com.miw" />
 	
 	

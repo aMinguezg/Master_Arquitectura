@@ -40,7 +40,7 @@ public class ViajeDAO implements ViajeDataService{
 				viaje.setId(rs.getInt("id"));
 				viaje.setOrigen(rs.getString("origen"));
 				viaje.setDestino(rs.getString("destino"));
-				viaje.setFecha(rs.getDate("fecha"));
+				viaje.setFecha(rs.getDate("fecha").toString());
 				viaje.setPrecio(rs.getDouble("precio"));
 				viaje.setImagen(rs.getString("imagen"));
 				viaje.setHorario(rs.getString("horario"));
@@ -87,7 +87,7 @@ public class ViajeDAO implements ViajeDataService{
 			
 			if(tipo) {
 				
-				ida = con.prepareStatement("select origen from viaje");
+				ida = con.prepareStatement("select distinct(origen) from viaje");
 				rsIda = ida.executeQuery();
 				
 				while (rsIda.next()) {
@@ -100,7 +100,7 @@ public class ViajeDAO implements ViajeDataService{
 			}
 			else {
 				
-				vuelta = con.prepareStatement("select destino from viaje");
+				vuelta = con.prepareStatement("select distinct(destino) from viaje");
 				rsVuelta = vuelta.executeQuery();
 				
 				while (rsVuelta.next()) {
@@ -127,9 +127,12 @@ public class ViajeDAO implements ViajeDataService{
 		return resultado;
 	}
 	
-public Vector<Viaje> getViajesSeleccionado(String ori,String dest,String fech) throws Exception {
+	
+	
+public Viaje getViajeById(int id) throws Exception {
 		
-		Vector<Viaje> resultado = new Vector<Viaje>();
+		Viaje viaje = new  Viaje();
+
 
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -143,7 +146,57 @@ public Vector<Viaje> getViajesSeleccionado(String ori,String dest,String fech) t
 			Class.forName(SQL_DRV);
 			con = DriverManager.getConnection(SQL_URL, "DFLANVIN", "AMAZIN");
 
-			ps = con.prepareStatement("select * from viaje where origen='"+ori+"' and destino = '"+dest+"' and fecha='"+fech+"'");
+			ps = con.prepareStatement("select * from viaje where id ="+id);
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				
+			 
+				viaje.setId(rs.getInt("id"));
+				viaje.setOrigen(rs.getString("origen"));
+				viaje.setDestino(rs.getString("destino"));
+				viaje.setFecha(rs.getDate("fecha").toString());
+				viaje.setPrecio(rs.getDouble("precio"));
+				viaje.setImagen(rs.getString("imagen"));
+				viaje.setHorario(rs.getString("horario"));
+				viaje.setContador(rs.getInt("contador"));
+				viaje.setPasajeros(rs.getInt("pasajeros"));
+				
+				 
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw (e);
+		} finally {
+			try {
+				ps.close();
+				con.close();
+			} catch (Exception e) {
+			}
+		}
+		
+		return viaje;
+	}	
+	
+public Vector<Viaje> getViajesSeleccionado(String ori,String dest,String fech, int numPasajeros) throws Exception {
+		
+		Vector<Viaje> resultado = new Vector<Viaje>();
+
+
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		Connection con = null;
+
+		try {
+			String SQL_DRV = "org.hsqldb.jdbcDriver";
+			String SQL_URL = "jdbc:hsqldb:hsql://localhost/amazin";
+
+			
+			Class.forName(SQL_DRV);
+			con = DriverManager.getConnection(SQL_URL, "DFLANVIN", "AMAZIN");
+
+			ps = con.prepareStatement("select * from viaje where origen='"+ori+"' and pasajeros >" + numPasajeros + " and destino = '"+dest+"' and fecha='"+fech+"'");
 			rs = ps.executeQuery();
 
 			while (rs.next()) {
@@ -152,7 +205,7 @@ public Vector<Viaje> getViajesSeleccionado(String ori,String dest,String fech) t
 				viaje.setId(rs.getInt("id"));
 				viaje.setOrigen(rs.getString("origen"));
 				viaje.setDestino(rs.getString("destino"));
-				viaje.setFecha(rs.getDate("fecha"));
+				viaje.setFecha(rs.getDate("fecha").toString());
 				viaje.setPrecio(rs.getDouble("precio"));
 				viaje.setImagen(rs.getString("imagen"));
 				viaje.setHorario(rs.getString("horario"));
@@ -175,5 +228,41 @@ public Vector<Viaje> getViajesSeleccionado(String ori,String dest,String fech) t
 		
 		return resultado;
 	}
+
+public void reducirPasajeros(int idViaje) throws Exception {
+
+	int rs = 0;
+ 
+	
+	PreparedStatement ps = null;
+		Connection con = null;
+
+	try {
+		String SQL_DRV = "org.hsqldb.jdbcDriver";
+		String SQL_URL = "jdbc:hsqldb:hsql://localhost/amazin";
+
+		
+		Class.forName(SQL_DRV);
+		con = DriverManager.getConnection(SQL_URL, "DFLANVIN", "AMAZIN");
+
+		ps = con.prepareStatement("UPDATE \"PUBLIC\".\"VIAJE\"\r\n" + 
+				"SET  \"PASAJEROS\" = \"PASAJEROS\" - 1 WHERE \"ID\" = " + idViaje);
+		 rs = ps.executeUpdate();
+
+		 
+
+	} catch (Exception e) {
+		e.printStackTrace();
+		throw (e);
+	} finally {
+		try {
+			ps.close();
+			con.close();
+		} catch (Exception e) {
+		}
+	}
+	
+ 	
+}
 	
 }

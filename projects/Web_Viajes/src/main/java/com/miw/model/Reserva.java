@@ -9,21 +9,16 @@ public class Reserva {
 
 
 	private String localizador;
-	private String nombreCompleto;
+	private String nombre;
+	private String apellidos;
 	private String dni;
 	private String email;
-	private String origenIda;
-	private String destinoIda;
-	private Date fechaIda;
-	private String horarioIda;
-	private String origenVuelta;
-	private String destinoVuelta;
-	private Date fechaVuelta;
-	private String horarioVuelta;
-	private int pasajeros;
-	private boolean seguro;
-	private double precio;
-	//private ArrayList<String> equipos = new ArrayList<String>();
+ 	private String seguro;
+	
+	private String [] equipaje;
+	private String tipoId;
+	private String idViajeIda;
+	private String idViajeVuelta;
 	
 	
 	public String getLocalizador() {
@@ -32,11 +27,17 @@ public class Reserva {
 	public void setLocalizador(String localizador) {
 		this.localizador = localizador;
 	}
-	public String getNombreCompleto() {
-		return nombreCompleto;
+	public String getNombre() {
+		return nombre;
 	}
-	public void setNombreCompleto(String nombreCompleto) {
-		this.nombreCompleto = nombreCompleto;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public String getApellidos() {
+		return apellidos;
+	}
+	public void setApellidos(String apellidos) {
+		this.apellidos = apellidos;
 	}
 	public String getDni() {
 		return dni;
@@ -50,75 +51,38 @@ public class Reserva {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getOrigenIda() {
-		return origenIda;
-	}
-	public void setOrigenIda(String origenIda) {
-		this.origenIda = origenIda;
-	}
-	public String getDestinoIda() {
-		return destinoIda;
-	}
-	public void setDestinoIda(String destinoIda) {
-		this.destinoIda = destinoIda;
-	}
-	public Date getFechaIda() {
-		return fechaIda;
-	}
-	public void setFechaIda(Date fechaIda) {
-		this.fechaIda = fechaIda;
-	}
-	public String getHorarioIda() {
-		return horarioIda;
-	}
-	public void setHorarioIda(String horarioIda) {
-		this.horarioIda = horarioIda;
-	}
-	public String getOrigenVuelta() {
-		return origenVuelta;
-	}
-	public void setOrigenVuelta(String origenVuelta) {
-		this.origenVuelta = origenVuelta;
-	}
-	public String getDestinoVuelta() {
-		return destinoVuelta;
-	}
-	public void setDestinoVuelta(String destinoVuelta) {
-		this.destinoVuelta = destinoVuelta;
-	}
-	public Date getFechaVuelta() {
-		return fechaVuelta;
-	}
-	public void setFechaVuelta(Date fechaVuelta) {
-		this.fechaVuelta = fechaVuelta;
-	}
-	public String getHorarioVuelta() {
-		return horarioVuelta;
-	}
-	public void setHorarioVuelta(String horarioVuelta) {
-		this.horarioVuelta = horarioVuelta;
-	}
-	public int getPasajeros() {
-		return pasajeros;
-	}
-	public void setPasajeros(int pasajeros) {
-		this.pasajeros = pasajeros;
-	}
-	public boolean isSeguro() {
+	public String getSeguro() {
 		return seguro;
 	}
-	public void setSeguro(boolean seguro) {
+	public void setSeguro(String seguro) {
 		this.seguro = seguro;
 	}
-	public double getPrecio() {
-		return precio;
+	public String[] getEquipaje() {
+		return equipaje;
 	}
-	public void setPrecio(double precio) {
-		this.precio = precio;
+	public void setEquipaje(String[] equipaje) {
+		this.equipaje = equipaje;
 	}
-	
-	
-
-
+	public String getTipoId() {
+		return tipoId;
+	}
+	public void setTipoId(String tipoId) {
+		this.tipoId = tipoId;
+	}
+	public String getIdViajeIda() {
+		return idViajeIda;
+	}
+	public void setIdViajeIda(String idViajeIda) {
+		this.idViajeIda = idViajeIda;
+	}
+	public String getIdViajeVuelta() {
+		return idViajeVuelta;
+	}
+	public void setIdViajeVuelta(String idViajeVuelta) {
+		this.idViajeVuelta = idViajeVuelta;
+	}
+	 
+	   
+	 
 
 }

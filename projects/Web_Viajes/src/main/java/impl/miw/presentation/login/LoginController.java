@@ -1,10 +1,12 @@
 package impl.miw.presentation.login;
 
+import java.util.List;
 import java.util.Random;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.miw.business.ReservaManagerService;
 import com.miw.model.LoginData;
 
 @Controller
@@ -20,7 +23,9 @@ public class LoginController {
 
 	
 	private String seed = "qwertyuiopasdfghjklñzxcvbnmQWERTYUIOPASDFGHJKLÑZXCVBNM1234567890";
-
+	@Autowired 
+	ReservaManagerService reservaManagerService;
+	
 	@RequestMapping(method = RequestMethod.GET)
 	public String getForm(Model model, HttpSession session) {
 		System.out.println("Preparing the model for Login");
@@ -30,6 +35,16 @@ public class LoginController {
 		String captcha = generateCaptcha();
 		model.addAttribute("captcha", captcha);
 		session.setAttribute("captcha", captcha);
+		
+		//Enviamos los 3 destinos mas solicitados
+		List<String> destinos;
+		try {
+			destinos = reservaManagerService.get3Popular();
+		} catch (Exception e) {
+ 			return "error";
+		}
+		
+		model.addAttribute("destinosTop", destinos);
 		return "login";
 	}
 
