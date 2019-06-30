@@ -159,10 +159,10 @@
                             <div class="col-md-4 multi-horizontal" data-for="phone">
                                 <div class="form-group">
                                      <label class="form-control-label mbr-fonts-style display-7" for="fechaIda">Fecha</label>
-									<form:input path="fecha" id="fechaIda" required="required" class="form-control" />
+									<form:input path="fecha" readonly="readonly" id="fechaIda" required="required" class="form-control" />
 									
 									 <label id="labelFecha" class="form-control-label mbr-fonts-style display-7" for="fechVuelta">Fecha vuelta</label>
-									<form:input path="fechaVuelta" id="fechVuelta"  class="form-control" />
+									<form:input path="fechaVuelta" readonly="readonly" id="fechVuelta"  class="form-control" />
 									<p style="font-weight: bold;">¿Quieres viaje de vuelta?</p>
 									<label class="radio-inline"><input type="radio" name="checkfecha" value="si" />Si</label>
 									<label class="radio-inline"><input type="radio" name="checkfecha" value="no" checked="checked" />No</label>

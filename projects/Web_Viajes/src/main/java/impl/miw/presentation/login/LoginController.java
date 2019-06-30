@@ -3,31 +3,48 @@ package impl.miw.presentation.login;
 import java.util.List;
 import java.util.Random;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+  import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
-import com.miw.business.ReservaManagerService;
-import com.miw.model.LoginData;
+ import com.miw.business.ReservaManagerService;
+ import com.miw.model.LoginData;
+
+import impl.miw.presentation.LoginCounter;
 
 @Controller
 @RequestMapping("login")
+@SessionAttributes({"loginCounter"}) 
 public class LoginController {
 
+ 	
 	
 	private String seed = "qwertyuiopasdfghjklñzxcvbnmQWERTYUIOPASDFGHJKLÑZXCVBNM1234567890";
 	@Autowired 
 	ReservaManagerService reservaManagerService;
 	
+	public static ApplicationContext contexto;
+
+	 
+	@ModelAttribute("loginCounter")
+	public LoginCounter getLoginCounter() {
+		System.out.println("Initializing loginCounter");
+		return new LoginCounter();
+	}
+	
 	@RequestMapping(method = RequestMethod.GET)
-	public String getForm(Model model, HttpSession session) {
+	public String getForm(Model model, HttpServletRequest req, HttpSession session, @ModelAttribute("loginCounter") LoginCounter loginCounter) {
 		System.out.println("Preparing the model for Login");
 		// We could prepare the model here instead of using @ModelAttribute
 
@@ -44,7 +61,14 @@ public class LoginController {
  			return "error";
 		}
 		
+		loginCounter.inc();
+		 //contexto = new ClassPathXmlApplicationContext("beans.xml");
+		 //LoginCounter lg = (LoginCounter) contexto.getBean("loginCounter");
+		//lg.inc();
+		
+		
 		model.addAttribute("destinosTop", destinos);
+		model.addAttribute("hitCounter", loginCounter.getLogins());
 		return "login";
 	}
 
@@ -91,6 +115,13 @@ public class LoginController {
 		System.out.println("Invoking prepareModel()");
 		return new LoginData();
 	}
+ 
+
+	public static void setContexto(ApplicationContext contexto) {
+		LoginController.contexto = contexto;
+	}
+
+	 
 
 	
 

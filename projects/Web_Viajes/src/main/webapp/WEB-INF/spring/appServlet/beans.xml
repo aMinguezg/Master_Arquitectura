@@ -17,6 +17,21 @@
 	<bean id="viajeManagerService"
 		class="impl.miw.business.viajemanager.ViajeManager">
 	</bean>
+	
+	
+	<bean id="loginCounter"
+		class="impl.miw.presentation.LoginCounter">
+	</bean>
+	
+	<bean id="localeResolver"
+class="org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver">
+</bean>
+
+ 	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="messages" />
+	</bean>
+	
 
 
 	<bean id="viajeDataService" class="impl.miw.persistence.viaje.ViajeDAO" />

@@ -161,6 +161,23 @@
 </section>
 </c:if>
 
+<section class="countdown1 cid-ruSp4z6URm" id="countdown1-u">
+    
+    
+    
+    <div class="container ">
+        <h2 class="mbr-section-title pb-3 align-center mbr-fonts-style display-2">
+            <spring:message code="visits"/></h2>
+        <h3 class="mbr-section-subtitle align-center mbr-fonts-style display-5"></h3>
+        
+    </div>
+    <div class="container countdown-cont align-center">
+         
+        <div class="secondsCountdown" title="visitante"><h2 class="mbr-section-title pb-3 align-center mbr-fonts-style display-2">${hitCounter}</h2>
+         </div>
+    </div>
+</section>
+
 <section once="" class="cid-ruMDUybqDE" id="footer7-b">
 
     
