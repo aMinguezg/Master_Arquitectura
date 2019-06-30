@@ -167,7 +167,7 @@
     
     <div class="container ">
         <h2 class="mbr-section-title pb-3 align-center mbr-fonts-style display-2">
-            <spring:message code="visits"/></h2>
+            <spring:message code="visitas"/></h2>
         <h3 class="mbr-section-subtitle align-center mbr-fonts-style display-5"></h3>
         
     </div>
