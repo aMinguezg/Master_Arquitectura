@@ -73,11 +73,11 @@
         <div class="menu-logo">
             <div class="navbar-brand">
                 <span class="navbar-logo">
-                  <a href="login">
+                  
                          <img src="<c:url value="/resources/assets/images/mbr-122x81.jpg"></c:url>" alt="Mobirise" title="" style="height: 3.8rem;">
-                    </a>
+                     
                 </span>
-                <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" href="login">
+                <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4">
                         ViajesColombia</a></span>
             </div>
         </div>

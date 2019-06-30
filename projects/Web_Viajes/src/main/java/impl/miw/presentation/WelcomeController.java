@@ -1,9 +1,10 @@
 package impl.miw.presentation;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
+import org.springframework.web.servlet.ModelAndView;
+ 
 @Controller
 public class WelcomeController {
 
@@ -16,4 +17,10 @@ public class WelcomeController {
 		System.out.println("Executing Welcome controller");
 		return "redirect:login";
 	}
+	
+	
+	
+	
+	
+	 
 }

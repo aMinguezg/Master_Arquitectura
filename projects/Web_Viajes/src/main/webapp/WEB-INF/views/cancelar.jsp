@@ -98,7 +98,7 @@
                 <form:form method="POST" action="cancelar" modelAttribute="reserva">
 <div class="form-group"> 
 <form:input class="form-control" path="localizador" required="required" placeholder="Localizador"/>
-<form:input class="form-control" path="email" required="required" placeholder="Email"/>
+<form:input class="form-control" type="email" path="email" required="required" placeholder="Email"/>
 
 
  </div>

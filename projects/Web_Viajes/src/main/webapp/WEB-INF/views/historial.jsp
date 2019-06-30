@@ -95,7 +95,7 @@
 
 <form:form method="POST" action="historial/listado" modelAttribute="reserva">
 <div class="form-group"> 
-<form:input class="form-control" path="email" required="required" placeholder="Email"/>
+<form:input class="form-control" type="email" path="email" required="required" placeholder="Email"/>
 
  </div>
  <span class="input-group-btn">
