@@ -13,7 +13,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
   <link rel="shortcut icon" href="assets/images/logo4.png" type="image/x-icon">
   <meta name="description" content="Web Site Generator Description">
-  <title>historial</title>
+  <title><spring:message code="historial"/></title>
 
   <link rel="stylesheet" href="<c:url value="/resources/assets/web/assets/mobirise-icons/mobirise-icons.css"></c:url>">
   <link rel="stylesheet" href="<c:url value="/resources/assets/tether/tether.min.css"></c:url>">
@@ -50,7 +50,7 @@
                          <img src="<c:url value="/resources/assets/images/mbr-122x81.jpg"></c:url>" alt="Mobirise" title="" style="height: 3.8rem;">
                    
                 <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" >
-                        ViajesColombia</a></span>
+                        <spring:message code="viaje.junto"/></a></span>
             </div>
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -58,7 +58,7 @@
                     
                     <form action="<c:url value="/reserva/historial" />" method="GET"> <span class="input-group-btn">
  
- <button type="submit" class="btn btn-primary btn-form display-4"> Historial reservas </button></span>
+ <button type="submit" class="btn btn-primary btn-form display-4"> <spring:message code="historial.reservas"/> </button></span>
     
   </form> 
                     
@@ -66,7 +66,7 @@
                 <li class="nav-item">
                     <form action="<c:url value="/reserva/cancelar" />" method="GET"> <span class="input-group-btn">
  
- <button type="submit" class="btn btn-primary btn-form display-4"> Cancelar reserva </button></span>
+ <button type="submit" class="btn btn-primary btn-form display-4"> <spring:message code="cancelar.reserva"/> </button></span>
     
   </form> 
                 </li></ul>
@@ -75,7 +75,7 @@
     </nav>
 </section>
 
-<section class="engine"><a href="https://mobirise.info/k">develop free website</a></section><section class="header13 cid-ruPyhds6Hw mbr-fullscreen mbr-parallax-background" id="header13-p">
+<section class="engine"></section><section class="header13 cid-ruPyhds6Hw mbr-fullscreen mbr-parallax-background" id="header13-p">
 
     
 
@@ -84,14 +84,14 @@
     <div class="container">
         
 
-        <h1 class="mbr-section-title align-center pb-3 mbr-white mbr-bold mbr-fonts-style display-1">Historial de reservas</h1>
+        <h1 class="mbr-section-title align-center pb-3 mbr-white mbr-bold mbr-fonts-style display-1"><spring:message code="historial.titulo"/></h1>
 
         <h3 class="mbr-section-subtitle mbr-fonts-style display-5">
-            Consulte su historial de viajes</h3>
+            <spring:message code="historial.viajes"/></h3>
 
         <div class="container mt-5 pt-5 pb-5">
             <div class="media-container-column" data-form-type="formoid">
-                <div data-form-alert="" hidden="">Thanks for filling out the form!</div>
+            
 
 <form:form method="POST" action="historial/listado" modelAttribute="reserva">
 <div class="form-group"> 
@@ -99,11 +99,15 @@
 
  </div>
  <span class="input-group-btn">
-                            <button type="submit" class="btn btn-primary display-4"> ver historial</button>
+                            <button type="submit" class="btn btn-primary display-4"><spring:message code="historial.ver"/></button>
                         </span>
     
 </form:form>
-               
+  <form action="<c:url value="/login" />" method="GET"> <span class="input-group-btn">
+ 
+ <button type="submit" class="btn btn-primary btn-form display-4"><spring:message code="inicio"/></button></span>
+    
+  </form>              
         </div>
     </div>
 

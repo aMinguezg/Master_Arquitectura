@@ -14,7 +14,7 @@
 <link rel="shortcut icon" href="assets/images/logo4.png"
 	type="image/x-icon">
 <meta name="description" content="Web Maker Description">
-<title>SelectViaje</title>
+<title><spring:message code="viajes"/></title>
 
 
 
@@ -128,7 +128,7 @@ $("#fechaIda").datepicker( "setDate", new Date());
                     </a>
                 </span>
                 <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" href="login">
-                        ViajesColombia</a></span>
+                        <spring:message code="viaje.junto"/></a></span>
             </div>
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -136,7 +136,7 @@ $("#fechaIda").datepicker( "setDate", new Date());
                     
                     <form action="<c:url value="/reserva/historial" />" method="GET"> <span class="input-group-btn">
  
- <button type="submit" class="btn btn-primary btn-form display-4"> Historial reservas </button></span>
+ <button type="submit" class="btn btn-primary btn-form display-4"> <spring:message code="historial.reservas"/> </button></span>
     
   </form> 
                     
@@ -144,7 +144,7 @@ $("#fechaIda").datepicker( "setDate", new Date());
                 <li class="nav-item">
                     <form action="<c:url value="/reserva/cancelar" />" method="GET"> <span class="input-group-btn">
  
- <button type="submit" class="btn btn-primary btn-form display-4"> Cancelar reserva </button></span>
+ <button type="submit" class="btn btn-primary btn-form display-4"> <spring:message code="cancelar.reserva"/> </button></span>
     
   </form> 
                 </li></ul>
@@ -170,7 +170,7 @@ $("#fechaIda").datepicker( "setDate", new Date());
 				<div class="title col-12 col-md-8">
 					<h2
 						class="align-center mbr-bold mbr-white pb-3 mbr-fonts-style display-2">
-						<br>¿A DONDE TE GUSTARÍA VIAJAR?
+						<br><spring:message code="donde.viajar"/>
 					</h2>
 					<h3
 						class="mbr-section-subtitle align-center mbr-light mbr-white pb-3 mbr-fonts-style display-5"></h3>
@@ -200,8 +200,7 @@ $("#fechaIda").datepicker( "setDate", new Date());
 			<div class="row justify-content-center">
 				<div class="media-container-column col-lg-8"
 					data-form-type="formoid">
-					<div data-form-alert="" hidden="">Thanks for filling out the
-						form!</div>
+					
 
 					<form:form modelAttribute="viaje">
 
@@ -209,7 +208,7 @@ $("#fechaIda").datepicker( "setDate", new Date());
 							<div class="col-md-6 multi-horizontal" data-for="name">
 								<div class="form-group">
 									<label class="form-control-label mbr-fonts-style display-7"
-										for="origen">Origen</label>
+										for="origen"><spring:message code="origen"/></label>
 									<form:select path="origen" items="${listaviajeida}"
 										class="form-control" id="origen" />
 								</div>
@@ -217,7 +216,7 @@ $("#fechaIda").datepicker( "setDate", new Date());
 							<div class="col-md-6 multi-horizontal" data-for="email">
 								<div class="form-group">
 									<label class="form-control-label mbr-fonts-style display-7"
-										for="destino">Destino</label>
+										for="destino"><spring:message code="destino"/></label>
 									<form:select path="destino" items="${listaviajevuelta}"
 										class="form-control" id="destino" />
 								</div>
@@ -225,19 +224,19 @@ $("#fechaIda").datepicker( "setDate", new Date());
 							<div class="col-md-4 multi-horizontal" data-for="phone">
 								<div class="form-group">
 									<label class="form-control-label mbr-fonts-style display-7"
-										for="fechaIda">Fecha</label>
+										for="fechaIda"><spring:message code="fecha"/></label>
 									<form:input path="fecha" readonly="readonly" id="fechaIda"
 										required="required" class="form-control" />
 
 									<label id="labelFecha"
 										class="form-control-label mbr-fonts-style display-7"
-										for="fechVuelta">Fecha vuelta</label>
+										for="fechVuelta"><spring:message code="fecha.vuelta"/></label>
 									<form:input path="fechaVuelta" readonly="readonly"
 										id="fechVuelta" class="form-control" />
-									<p style="font-weight: bold;">¿Quieres viaje de vuelta?</p>
+									<p style="font-weight: bold;"><spring:message code="quieres.vuelta"/></p>
 									<label class="radio-inline"><input type="radio"
-										name="checkfecha" value="si" />Si</label> <label class="radio-inline"><input
-										type="radio" name="checkfecha" value="no" checked="checked" />No</label>
+										name="checkfecha" value="si" /><spring:message code="si"/></label> <label class="radio-inline"><input
+										type="radio" name="checkfecha" value="no" checked="checked" /><spring:message code="no"/></label>
 								</div>
 							</div>
 
@@ -245,7 +244,7 @@ $("#fechaIda").datepicker( "setDate", new Date());
 
 								<div class="form-group">
 									<label class="form-control-label mbr-fonts-style display-7"
-										for="pasajeros">Número de pasajeros</label>
+										for="pasajeros"><spring:message code="numero.pasajeros"/></label>
 									<form:input path="pasajeros" min="1" required="required"
 										type="number" class="form-control" value="1"/>
 								</div>
@@ -255,7 +254,7 @@ $("#fechaIda").datepicker( "setDate", new Date());
 
 						<span class="input-group-btn">
 							<button href="horarios" type="submit"
-								class="btn btn-primary btn-form display-4">Buscar</button>
+								class="btn btn-primary btn-form display-4"><spring:message code="buscar"/></button>
 						</span>
 					</form:form>
 				</div>

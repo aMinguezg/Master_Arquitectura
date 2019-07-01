@@ -6,7 +6,7 @@
 
 <html>
 <head>
-<title>Viajes</title>
+<title><spring:message code="viajes"/></title>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -96,7 +96,7 @@ $(document).ready(function() {
                     </a>
                 </span>
                 <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" href="login">
-                        ViajesColombia</a></span>
+                        <spring:message code="viaje.junto"/></a></span>
             </div>
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -104,7 +104,7 @@ $(document).ready(function() {
                     
                     <form action="<c:url value="/reserva/historial" />" method="GET"> <span class="input-group-btn">
  
- <button type="submit" class="btn btn-primary btn-form display-4"> Historial reservas </button></span>
+ <button type="submit" class="btn btn-primary btn-form display-4"> <spring:message code="historial.reservas"/> </button></span>
     
   </form> 
                     
@@ -112,7 +112,7 @@ $(document).ready(function() {
                 <li class="nav-item">
                     <form action="<c:url value="/reserva/cancelar" />" method="GET"> <span class="input-group-btn">
  
- <button type="submit" class="btn btn-primary btn-form display-4"> Cancelar reserva </button></span>
+ <button type="submit" class="btn btn-primary btn-form display-4"> <spring:message code="cancelar.reserva"/> </button></span>
     
   </form> 
                 </li></ul>
@@ -121,7 +121,7 @@ $(document).ready(function() {
     </nav>
 </section>
 
-<section class="engine"><a href="https://mobirise.info/h">create a web page for free</a></section><section class="mbr-section content5 cid-ruN1DMyZKp mbr-parallax-background" id="content5-l">
+<section class="engine"></section><section class="mbr-section content5 cid-ruN1DMyZKp mbr-parallax-background" id="content5-l">
 
     
 
@@ -130,9 +130,9 @@ $(document).ready(function() {
     <div class="container">
         <div class="media-container-row">
             <div class="title col-12 col-md-8">
-                <h2 class="align-center mbr-bold mbr-white pb-3 mbr-fonts-style display-2"><br>Tu reserva ha sido realizada con éxito</h2>
+                <h2 class="align-center mbr-bold mbr-white pb-3 mbr-fonts-style display-2"><br><spring:message code="reserva.exito"/></h2>
                 <h3 class="mbr-section-subtitle align-center mbr-light mbr-white pb-3 mbr-fonts-style display-5">
-                    Resumen de reserva</h3>
+                   <spring:message code="resumen.reserva"/></h3>
                 
                 
             </div>
@@ -143,14 +143,14 @@ $(document).ready(function() {
 <div class="container">
 <form action="<c:url value="/reserva/mail/${reserva.localizador}" />" method="GET">
  <span class="input-group-btn">
-                            <button type="submit" class="btn btn-primary btn-form display-4">Enviar Email</button>
+                            <button type="submit" class="btn btn-primary btn-form display-4"><spring:message code="enviar.email"/></button>
                         </span>
     
  </form>
  
  <form action="<c:url value="/login" />" method="GET"> <span class="input-group-btn">
  
- <button type="submit" class="btn btn-primary btn-form display-4">Volver inicio</button></span>
+ <button type="submit" class="btn btn-primary btn-form display-4"><spring:message code="inicio"/></button></span>
     
   </form>
 
@@ -159,24 +159,24 @@ $(document).ready(function() {
 	<table id="reservaRealizada" class="hover" style="width: 100%">
 		<thead>
 			<tr>
-				<th>Detalles de reserva</th>
-				<th>LOCALIZADOR: ${reserva.localizador}</th>
+				<th><spring:message code="detalles.reserva"/></th>
+				<th><spring:message code="localizador"/>: ${reserva.localizador}</th>
 				<th></th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
-				<td>Nombre</td>
+				<td><spring:message code="nombre2"/></td>
 				<td>${reserva.nombre}  ${reserva.apellidos}</td>
 				<td></td>
 			</tr>
 			<tr>
-				<td>Nº Identificación</td>
+				<td><spring:message code="identificacion2"/></td>
 				<td>${reserva.dni}</td>
 				<td></td>
 			</tr>
 			<tr>
-				<td>Equipaje</td>
+				<td><spring:message code="equipaje"/></td>
 				<td>
 					<c:forEach items="${reserva.equipaje}" var="extra">
 					${extra} -
@@ -185,27 +185,27 @@ $(document).ready(function() {
 				<td></td>
 			</tr>
 			<tr>
-				<td>Viaje ida - ORIGEN</td>
+				<td><spring:message code="viaje.ida.origen"/></td>
 				<td>${viajeIda.origen}</td>
 				<td></td>
 			</tr>
 			<tr>
-				<td>Viaje ida - DESTINO</td>
+				<td><spring:message code="viaje.ida.destino"/></td>
 				<td>${viajeIda.destino}</td>
 				<td></td>
 			</tr>
 			<tr>
-				<td>Viaje ida - fecha</td>
+				<td><spring:message code="viaje.ida.fecha"/></td>
 				<td>${viajeIda.fecha}</td>
 				<td></td>
 			</tr>
 			<tr>
-				<td>Viaje ida - horario</td>
+				<td><spring:message code="viaje.ida.horario"/></td>
 				<td>${viajeIda.horario}</td>
 				<td></td>
 			</tr>
 			<tr>
-				<td>Viaje ida - precio</td>
+				<td><spring:message code="viaje.ida.precio"/></td>
 				<td>${viajeIda.precio}</td>
 				<td></td>
 			</tr>
@@ -213,27 +213,27 @@ $(document).ready(function() {
 			<c:if test="${not empty viajeVuelta}">
 
 				<tr>
-					<td>Viaje vuelta - ORIGEN</td>
+					<td><spring:message code="viaje.vuelta.origen"/></td>
 					<td>${viajeVuelta.origen}</td>
 					<td></td>
 				</tr>
 					<tr>
-					<td>Viaje vuelta - DESTINO</td>
+					<td><spring:message code="viaje.vuelta.destino"/></td>
 					<td>${viajeVuelta.destino}</td>
 					<td></td>
 				</tr>
 				<tr>
-					<td>Viaje vuelta - fecha</td>
+					<td><spring:message code="viaje.vuelta.fecha"/></td>
 					<td>${viajeVuelta.fecha}</td>
 					<td></td>
 				</tr>
 				<tr>
-					<td>Viaje vuelta - horario</td>
+					<td><spring:message code="viaje.vuelta.horario"/></td>
 					<td>${viajeVuelta.horario}</td>
 					<td></td>
 				</tr>
 				<tr>
-					<td>Viaje vuelta - precio</td>
+					<td><spring:message code="viaje.vuelta.precio"/></td>
 					<td>${viajeVuelta.precio}</td>
 					<td></td>
 				</tr>

@@ -12,7 +12,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
   <link rel="shortcut icon" href="<c:url value="/resources/assets/images/logo4.png"></c:url>" type="image/x-icon">
   <meta name="description" content="Web Builder Description">
-  <title>viajesColombia</title>
+  <title><spring:message code="viaje.junto"/></title>
   
   
   <link rel="stylesheet" href="<c:url value="/resources/assets/web/assets/mobirise-icons/mobirise-icons.css"></c:url>">
@@ -58,7 +58,7 @@
                     
                     <form action="<c:url value="/reserva/historial" />" method="GET"> <span class="input-group-btn">
  
- <button type="submit" class="btn btn-primary btn-form display-4"> Historial reservas </button></span>
+ <button type="submit" class="btn btn-primary btn-form display-4"> <spring:message code="historial.reservas"/> </button></span>
     
   </form> 
                     
@@ -66,7 +66,7 @@
                 <li class="nav-item">
                     <form action="<c:url value="/reserva/cancelar" />" method="GET"> <span class="input-group-btn">
  
- <button type="submit" class="btn btn-primary btn-form display-4"> Cancelar reserva </button></span>
+ <button type="submit" class="btn btn-primary btn-form display-4"> <spring:message code="cancelar.reserva"/> </button></span>
     
   </form> 
                 </li></ul>
@@ -75,7 +75,7 @@
     </nav>
 </section>
 
-<section class="engine"><a href="https://mobirise.info/m">site design templates</a></section><section class="cid-ruMBxkEqRf mbr-fullscreen mbr-parallax-background" id="header2-9">
+<section class="engine"></section><section class="cid-ruMBxkEqRf mbr-fullscreen mbr-parallax-background" id="header2-9">
 
     
 
@@ -85,11 +85,11 @@
         <div class="row justify-content-md-center">
             <div class="mbr-white col-md-10">
                 <h1 class="mbr-section-title mbr-bold pb-3 mbr-fonts-style display-1">
-                    Viajes Colombia</h1>
+                    <spring:message code="viaje.separado"/></h1>
                 
                 <p class="mbr-text pb-3 mbr-fonts-style display-5"><em>
-                    Los mejores viajes al mejor precio</em></p>
-                <div class="mbr-section-btn"><a class="btn btn-md btn-secondary display-4" href="viaje">Buscar viaje</a></div>
+                    <spring:message code="eslogan"/></em></p>
+                <div class="mbr-section-btn"><a class="btn btn-md btn-secondary display-4" href="viaje"><spring:message code="buscar.viaje"/></a></div>
             </div>
         </div>
     </div>

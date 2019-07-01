@@ -6,7 +6,7 @@
 
 <html>
 <head>
-<title>Viajes</title>
+<title><spring:message code="viajes"/></title>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -64,7 +64,7 @@
                     
                 </span>
                 <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" >
-                        ViajesColombia</a></span>
+                        <spring:message code="viaje.junto"/></a></span>
             </div>
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -72,7 +72,7 @@
                     
                     <form action="<c:url value="/reserva/historial" />" method="GET"> <span class="input-group-btn">
  
- <button type="submit" class="btn btn-primary btn-form display-4"> Historial reservas </button></span>
+ <button type="submit" class="btn btn-primary btn-form display-4"> <spring:message code="historial.reservas"/> </button></span>
     
   </form> 
                     
@@ -80,7 +80,7 @@
                 <li class="nav-item">
                     <form action="<c:url value="/reserva/cancelar" />" method="GET"> <span class="input-group-btn">
  
- <button type="submit" class="btn btn-primary btn-form display-4"> Cancelar reserva </button></span>
+ <button type="submit" class="btn btn-primary btn-form display-4"> <spring:message code="cancelar.reserva"/> </button></span>
     
   </form> 
                 </li></ul>
@@ -90,7 +90,7 @@
 </section>
 
 
-<section class="engine"><a href="https://mobirise.info/h">create a web page for free</a></section><section class="mbr-section content5 cid-ruN1DMyZKp mbr-parallax-background" id="content5-l">
+<section class="engine"></section><section class="mbr-section content5 cid-ruN1DMyZKp mbr-parallax-background" id="content5-l">
 
     
 
@@ -99,10 +99,10 @@
     <div class="container">
         <div class="media-container-row">
             <div class="title col-12 col-md-8">
-                <h2 class="align-center mbr-bold mbr-white pb-3 mbr-fonts-style display-2"><br>Reserva cancelada con éxito</h2>
+                <h2 class="align-center mbr-bold mbr-white pb-3 mbr-fonts-style display-2"><br><spring:message code="si.reserva"/></h2>
                 <h3 class="mbr-section-subtitle align-center mbr-light mbr-white pb-3 mbr-fonts-style display-5">
-                    Puede volver a la página de inicio</h3>
-                    <p>Gracias por confiar en Viajes Colombia</p>
+                   <spring:message code="puede.inicio"/></h3>
+                    <p><spring:message code="gracias"/></p>
                 
                 
             </div>
@@ -115,7 +115,7 @@
  
  <form action="<c:url value="/login" />" method="GET"> <span class="input-group-btn">
  
- <button type="submit" class="btn btn-primary btn-form display-4">Volver inicio</button></span>
+ <button type="submit" class="btn btn-primary btn-form display-4"><spring:message code="inicio"/></button></span>
     
   </form> 
  </div>

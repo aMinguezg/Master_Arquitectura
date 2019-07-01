@@ -51,7 +51,7 @@
                    
                 </span>
                 <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" >
-                        ViajesColombia</a></span>
+                        <spring:message code="viaje.junto"/></a></span>
             </div>
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -59,7 +59,7 @@
                     
                     <form action="<c:url value="/reserva/historial" />" method="GET"> <span class="input-group-btn">
  
- <button type="submit" class="btn btn-primary btn-form display-4"> Historial reservas </button></span>
+ <button type="submit" class="btn btn-primary btn-form display-4"> <spring:message code="historial.reservas"/> </button></span>
     
   </form> 
                     
@@ -67,7 +67,7 @@
                 <li class="nav-item">
                     <form action="<c:url value="/reserva/cancelar" />" method="GET"> <span class="input-group-btn">
  
- <button type="submit" class="btn btn-primary btn-form display-4"> Cancelar reserva </button></span>
+ <button type="submit" class="btn btn-primary btn-form display-4"> <spring:message code="cancelar.reserva"/> </button></span>
     
   </form> 
                 </li></ul>
@@ -77,7 +77,7 @@
 </section>
 
 
-<section class="engine"><a href="https://mobirise.info/f">simple web creator</a></section><section class="header13 cid-ruPzw2MOkl mbr-fullscreen mbr-parallax-background" id="header13-r">
+<section class="engine"></section><section class="header13 cid-ruPzw2MOkl mbr-fullscreen mbr-parallax-background" id="header13-r">
 
     
 
@@ -86,14 +86,14 @@
     <div class="container">
         
 
-        <h1 class="mbr-section-title align-center pb-3 mbr-white mbr-bold mbr-fonts-style display-1">Cancelar reserva</h1>
+        <h1 class="mbr-section-title align-center pb-3 mbr-white mbr-bold mbr-fonts-style display-1"><spring:message code="cancelar.reserva"/></h1>
 
         <h3 class="mbr-section-subtitle mbr-fonts-style display-5">
-            Introduzca el localizador y el correo electronico</h3>
+            <spring:message code="localizador.correo"/></h3>
 
         <div class="container mt-5 pt-5 pb-5">
             <div class="media-container-column" data-form-type="formoid">
-                <div data-form-alert="" hidden="">Thanks for filling out the form!</div>
+                
 
                 <form:form method="POST" action="cancelar" modelAttribute="reserva">
 <div class="form-group"> 
@@ -103,10 +103,15 @@
 
  </div>
  <span class="input-group-btn">
-                            <button type="submit" class="btn btn-primary display-4"> Cancelar reserva</button>
+                            <button type="submit" class="btn btn-primary display-4"> <spring:message code="cancelar.reserva"/></button>
                         </span>
     
 </form:form>
+<form action="<c:url value="/login" />" method="GET"> <span class="input-group-btn">
+ 
+ <button type="submit" class="btn btn-primary btn-form display-4"><spring:message code="inicio"/></button></span>
+    
+  </form> 
             </div>
         </div>
     </div>

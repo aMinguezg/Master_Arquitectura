@@ -54,7 +54,7 @@
 	var contextPath = '${pageContext.request.contextPath}';
 </script>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title><spring:message code="viajes"/></title>
 </head>
 <body>
 	 <section class="menu cid-ruMBnOoEGw" once="menu" id="menu1-8">
@@ -78,7 +78,7 @@
                      
                 </span>
                 <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4">
-                        ViajesColombia</a></span>
+                        <spring:message code="viaje.junto"/></a></span>
             </div>
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -86,7 +86,7 @@
                     
                     <form action="<c:url value="/reserva/historial" />" method="GET"> <span class="input-group-btn">
  
- <button type="submit" class="btn btn-primary btn-form display-4"> Historial reservas </button></span>
+ <button type="submit" class="btn btn-primary btn-form display-4"> <spring:message code="historial.reservas"/> </button></span>
     
   </form> 
                     
@@ -94,7 +94,7 @@
                 <li class="nav-item">
                     <form action="<c:url value="/reserva/cancelar" />" method="GET"> <span class="input-group-btn">
  
- <button type="submit" class="btn btn-primary btn-form display-4"> Cancelar reserva </button></span>
+ <button type="submit" class="btn btn-primary btn-form display-4"> <spring:message code="cancelar.reserva"/> </button></span>
     
   </form> 
                 </li></ul>
@@ -107,24 +107,24 @@
 	</br>
 	<section class="mbr-section form1 cid-ruN1sazoYG" id="form1-j">
 		<div class="container">
-			<h2>Tu historial de viajes</h2>
+			<h2><spring:message code="historial.titulo"/></h2>
 			<form action="<c:url value="/login" />" method="GET"> <span class="input-group-btn">
  
- <button type="submit" class="btn btn-primary btn-form display-4">Volver inicio</button></span>
+ <button type="submit" class="btn btn-primary btn-form display-4"><spring:message code="inicio"/></button></span>
     
   </form>
 			<div id="primerForm">
 				<div class="panel-group">
 					<div class="panel panel-primary">
-						<div class="panel-heading">Tus últimos destinos</div>
+						<div class="panel-heading"><spring:message code="ultimos.destinos"/></div>
 						<div class="panel-body">
 							<table id="tb_viajesIda" class="display" style="width: 100%">
 								<thead>
 									<tr>
-										<th><b>Origen</b></th>
-										<th><b>Destino</b></th>
-										<th><b>Precio</b></th>
-										<th><b>Fecha</b></th>
+										<th><b><spring:message code="origen"/></b></th>
+										<th><b><spring:message code="destino"/></b></th>
+										<th><b><spring:message code="precio"/></b></th>
+										<th><b><spring:message code="fecha"/></b></th>
 									</tr>
 								</thead>
 								<tbody>

@@ -246,8 +246,9 @@ public class ReservaDAO implements ReservaDataService{
 			} 
 			else { msgCompleto = mainMsg + msgFinal;
 			}
+			message.setContent(msgCompleto, "text/html; charset=utf-8");
 
-			message.setText(msgCompleto);				
+			//message.setText(msgCompleto);				
 
 
 			//send the message  

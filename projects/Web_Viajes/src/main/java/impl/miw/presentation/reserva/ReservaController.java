@@ -141,8 +141,8 @@ public class ReservaController {
 			vFlash.setFecha(viajeIda.getFecha());
 			vFlash.setDestino(viajeIda.getDestino());
 			vFlash.setOrigen(viajeIda.getOrigen());
-			if( viajeVuelta!= null &&viajeVuelta.getFechaVuelta() != null) {
-				vFlash.setFechaVuelta(viajeVuelta.getFechaVuelta());
+			if( viajeVuelta!= null &&viajeVuelta.getFecha() != null) {
+				vFlash.setFechaVuelta(viajeVuelta.getFecha());
 			}
 			redirectAttributes.addFlashAttribute("viaje", vFlash);
 			redirectAttributes.addFlashAttribute("errorReserva",result.getAllErrors().toString());

@@ -130,7 +130,7 @@
  
 </script>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title><spring:message code="viajes"/></title>
 </head>
 <body>
   <section class="menu cid-ruMBnOoEGw" once="menu" id="menu1-8">
@@ -154,7 +154,7 @@
                     </a>
                 </span>
                 <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" href="login">
-                        ViajesColombia</a></span>
+                        <spring:message code="viaje.junto"/></a></span>
             </div>
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -162,7 +162,7 @@
                     
                     <form action="<c:url value="/reserva/historial" />" method="GET"> <span class="input-group-btn">
  
- <button type="submit" class="btn btn-primary btn-form display-4"> Historial reservas </button></span>
+ <button type="submit" class="btn btn-primary btn-form display-4"> <spring:message code="historial.reservas"/> </button></span>
     
   </form> 
                     
@@ -170,7 +170,7 @@
                 <li class="nav-item">
                     <form action="<c:url value="/reserva/cancelar" />" method="GET"> <span class="input-group-btn">
  
- <button type="submit" class="btn btn-primary btn-form display-4"> Cancelar reserva </button></span>
+ <button type="submit" class="btn btn-primary btn-form display-4"> <spring:message code="cancelar.reserva"/> </button></span>
     
   </form> 
                 </li></ul>
@@ -190,27 +190,27 @@
 						<img src="<c:url value="/resources/assets/images/${fn:trim(fn:toLowerCase(listaida[0].destino))}.jpg"></c:url>" class="img-thumbnail" alt="img" width="304" height="236">
 
 </div> 
-			<h2>Selecciona tu viaje</h2>
+			<h2><spring:message code="selecciona.viaje"/></h2>
 			<c:if test="${not empty errorReserva}">
 <div class="alert alert-danger">
-  <strong>Danger!</strong> ${errorReserva}
+  <strong><spring:message code="error"/></strong> ${errorReserva}
 </div>
 </c:if>
 			<div id="primerForm">
 				<div class="panel-group">
 					<div class="panel panel-primary">
-						<div class="panel-heading">Selecciona Ida</div>
+						<div class="panel-heading"><spring:message code="selecciona.ida"/></div>
 						<div class="panel-body">
  							<table id="tb_viajesIda" class="display" style="width: 100%">
 								<thead>
 									<tr>
 										<th></th>
-										<th><b>Origen</b></th>
-										<th><b>Destino</b></th>
-										<th><b>Precio</b></th>
-										<th><b>Fecha</b></th>
-										<th><b>Horario</b></th>
-										<th><b>Pasajeros</b></th>
+										<th><b><spring:message code="origen"/></b></th>
+										<th><b><spring:message code="destino"/></b></th>
+										<th><b><spring:message code="precio"/></b></th>
+										<th><b><spring:message code="fecha"/></b></th>
+										<th><b><spring:message code="horario"/></b></th>
+										<th><b><spring:message code="pasajeros"/></b></th>
 									</tr>
 								</thead>
 								<tbody>
@@ -241,7 +241,7 @@
 					<c:if test="${fn:length(listavuelta) gt 0}">
 
 						<div class="panel panel-primary">
-							<div class="panel-heading">Selecciona vuelta</div>
+							<div class="panel-heading"><spring:message code="selecciona.vuelta"/></div>
 							<div class="panel-body">
 
 
@@ -249,12 +249,12 @@
 									<thead>
 										<tr>
 											<th></th>
-											<th><b>Origen</b></th>
-											<th><b>Destino</b></th>
-											<th><b>Precio</b></th>
-											<th><b>Fecha</b></th>
-											<th><b>Horario</b></th>
-											<th><b>Pasajeros</b></th>
+											<th><b><spring:message code="origen"/></b></th>
+											<th><b><spring:message code="destino"/></b></th>
+											<th><b><spring:message code="precio"/></b></th>
+											<th><b><spring:message code="fecha"/></b></th>
+											<th><b><spring:message code="horario"/></b></th>
+											<th><b><spring:message code="pasajeros"/></b></th>
 										</tr>
 									</thead>
 									<tbody>
@@ -285,45 +285,44 @@
 				</div>
 
 
-				<h2>Extras</h2>
+				<h2><spring:message code="extra"/></h2>
 				<div class="well well-sm">
 
-					<p style="font-size: large; font-weight: bold;">Incluir
-						equipaje extra.</p>
+					<p style="font-size: large; font-weight: bold;"><spring:message code="equipaje.extra"/></p>
 
 					<div class="checkbox">
 						<label class="checkbox-inline"><form:checkbox
-								path="equipaje" value="Bicicleta" /> Bicicleta</label>
+								path="equipaje" value="Bicicleta" /> <spring:message code="bicicleta"/></label>
 					</div>
 
 
 					<div class="checkbox">
 						<label class="checkbox-inline"><form:checkbox
-								path="equipaje" value="Mascota" /> Mascota</label>
+								path="equipaje" value="Mascota" /> <spring:message code="mascota"/></label>
 					</div>
 
 					<div class="checkbox">
 						<label class="checkbox-inline"><form:checkbox
-								path="equipaje" value="Tabla_surf" /> Tabla de surf</label>
+								path="equipaje" value="Tabla_surf" /> <spring:message code="surf"/></label>
 					</div>
 
 					<div class="checkbox">
 						<label class="checkbox-inline"><form:checkbox
-								path="equipaje" value="Esquies" /> Esquies</label>
+								path="equipaje" value="Esquies" /> <spring:message code="esquies"/></label>
 					</div>
 				</div>
 
 				<div class="well well-sm">
 
-					<p style="font-size: large; font-weight: bold;">Seguro viaje</p>
+					<p style="font-size: large; font-weight: bold;"><spring:message code="seguro"/></p>
 					<div id="seguro">
 						<form:radiobutton path="seguro" value="si" required="required"/>
-						Si
+						<spring:message code="si"/>
 					</div>
 
 					<div id="seguro">
 						<form:radiobutton path="seguro" value="no" checked="checked" required="required" />
-						No
+						<spring:message code="no"/>
 					</div>
 				</div>
 
@@ -332,25 +331,25 @@
 				<c:if test="${fn:length(listaida) gt 0}">
 
 					<button onclick="gotoReserva()" id="sendData" type="button"
-						class="btn btn-primary btn-lg">Enviar Datos</button>
+						class="btn btn-primary btn-lg"><spring:message code="enviar.datos"/></button>
 				</c:if>
 			</div>
 
 			<div id="confirmarReserva" style="display: none;">
 <div class="panel-group">
 					<div class="panel panel-primary">
-						<div class="panel-heading">Confirmar reserva</div>
+						<div class="panel-heading"><spring:message code="confirmar.reserva"/></div>
 						<div class="panel-body">
-				<h2>NOMBRE</h2>
+				<h2><spring:message code="nombre"/></h2>
 				<form:input class="form-control" path="nombre" required="required"/>
 				<br />
-				<h2>APELLIDOS</h2>
+				<h2><spring:message code="apellidos"/></h2>
 				<form:input class="form-control" path="apellidos" required="required"/>
 				<br />
-				<h2>EMAIL</h2>
+				<h2><spring:message code="email"/></h2>
 				<form:input class="form-control" type="email" path="email" required="required"/>
 				<br />
-				<h2>IDENTIFICACIÓN</h2>
+				<h2><spring:message code="identificacion"/></h2>
 
 				<form:select class="form-control" path="tipoId">
 					<form:options items="${countryList}" />
